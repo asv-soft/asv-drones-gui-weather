@@ -1,0 +1,52 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:weather="clr-namespace:Asv.Drones.Gui.Weather"
+             xmlns:core="clr-namespace:Asv.Drones.Gui.Core;assembly=Asv.Drones.Gui.Core"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Asv.Drones.Gui.Weather.WeatherSettingsView"
+             x:CompileBindings="True"
+             x:DataType="weather:WeatherSettingsViewModel">
+    <Design.DataContext>
+        <weather:WeatherSettingsViewModel/>
+    </Design.DataContext>
+    <core:OptionsDisplayItem Header="{x:Static weather:RS.WeatherSettingsView_Header}"
+                             Icon="{Binding WeatherIcon}"
+                             Description="{x:Static weather:RS.WeatherSettingsView_Description}"
+                             Expands="True"
+                             IsExpanded="False">
+        <core:OptionsDisplayItem.Content>
+            <StackPanel Spacing="8">
+                <core:OptionsDisplayItem Header="{x:Static weather:RS.WeatherSettingsView_WeatherSwitch_Header}" 
+                                         Icon="{Binding WeatherSwitchIcon}"
+                                         Description="{x:Static weather:RS.WeatherSettingsView_WeatherSwitch_Description}">
+                    <core:OptionsDisplayItem.ActionButton>
+                        <ToggleButton Content="{CompiledBinding VisibilityButton}" IsChecked="{CompiledBinding Visibility}"/>
+                    </core:OptionsDisplayItem.ActionButton>
+                </core:OptionsDisplayItem>
+                <core:OptionsDisplayItem Header="{x:Static weather:RS.WeatherSettingsView_WeatherProvider_Header}"
+                                         Icon="{Binding WeatherIcon}"
+                                         Description="{x:Static weather:RS.WeatherSettingsView_WeatherProvider_Description}">
+                    <core:OptionsDisplayItem.ActionButton>
+                        <ComboBox Width="180" ItemsSource="{CompiledBinding WeatherProviders}" 
+                                  SelectedItem="{CompiledBinding CurrentWeatherProvider}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{CompiledBinding Name}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>   
+                    </core:OptionsDisplayItem.ActionButton>
+                </core:OptionsDisplayItem>
+                <core:OptionsDisplayItem Header="{x:Static weather:RS.WeatherSettingsView_WeatherApiKey_Header}"
+                                         Icon="{Binding WeatherApiKeyIcon}"
+                                         Description="{x:Static weather:RS.WeatherSettingsView_WeatherApiKey_Description}">
+                    <core:OptionsDisplayItem.ActionButton>
+                        <TextBox Watermark="Enter your api key" Width="180"/>
+                    </core:OptionsDisplayItem.ActionButton>
+                </core:OptionsDisplayItem>
+            </StackPanel>
+        </core:OptionsDisplayItem.Content>
+    </core:OptionsDisplayItem>
+</UserControl>

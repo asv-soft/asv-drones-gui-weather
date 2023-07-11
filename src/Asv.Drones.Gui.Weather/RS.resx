@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="WeatherSettingsView_WeatherSwitch_Button_Hide" xml:space="preserve">
+        <value>Hide</value>
+    </data>
+    <data name="WeatherSettingsView_WeatherSwitch_Button_Show" xml:space="preserve">
+        <value>Show</value>
+    </data>
+    <data name="WeatherSettingsView_Description" xml:space="preserve">
+        <value>Here you can change weather settings</value>
+    </data>
+    <data name="WeatherSettingsView_Header" xml:space="preserve">
+        <value>Weather settings</value>
+    </data>
+    <data name="WeatherSettingsView_WeatherProvider_Description" xml:space="preserve">
+        <value>Here you can choose weather provider</value>
+    </data>
+    <data name="WeatherSettingsView_WeatherProvider_Header" xml:space="preserve">
+        <value>Weather provider</value>
+    </data>
+    <data name="WeatherSettingsView_WeatherSwitch_Description" xml:space="preserve">
+        <value>Here you can change weather visibility on a flight page</value>
+    </data>
+    <data name="WeatherSettingsView_WeatherSwitch_Header" xml:space="preserve">
+        <value>Weather visibility</value>
+    </data>
+    <data name="WeatherSettingsView_WeatherApiKey_Description" xml:space="preserve">
+        <value>Here you need enter your API key</value>
+    </data>
+    <data name="WeatherSettingsView_WeatherApiKey_Header" xml:space="preserve">
+        <value>API key</value>
+    </data>
+</root>

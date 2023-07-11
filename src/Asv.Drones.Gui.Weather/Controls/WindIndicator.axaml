@@ -1,0 +1,26 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Asv.Drones.Gui.Weather"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+    <Design.PreviewWith>
+        <controls:WindIndicator Angle="214" Value="30.2" MaxValue="30" Width="50" Height="50"/>
+    </Design.PreviewWith>
+    <Style Selector="controls|WindIndicator">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <avalonia:MaterialIcon Background="Transparent"
+                                       Foreground="{Binding CurrentColor, RelativeSource={RelativeSource TemplatedParent}}"
+                                       Width="{TemplateBinding Width}"
+                                       Height="{TemplateBinding Height}"
+                                       Kind="ArrowTopBold">
+                    <avalonia:MaterialIcon.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="{Binding Angle, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </TransformGroup>
+                    </avalonia:MaterialIcon.RenderTransform>
+                </avalonia:MaterialIcon>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
