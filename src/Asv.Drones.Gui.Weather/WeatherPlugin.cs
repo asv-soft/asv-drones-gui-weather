@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel.Composition;
 using Asv.Drones.Gui.Core;
+using Avalonia;
+using Avalonia.Markup.Xaml.Styling;
+using Avalonia.Styling;
 
 namespace Asv.Drones.Gui.Weather;
 
@@ -14,7 +17,8 @@ public class WeatherPlugin : IPluginEntryPoint
     }
     public void Initialize()
     {
-        
+        // Application.Current
+        //     .Styles.Add(new StyleInclude(new Uri("avares://Asv.Drones.Gui.Weather/Controls/WindIndicator.axaml")));   
     }
 
     public void OnFrameworkInitializationCompleted()

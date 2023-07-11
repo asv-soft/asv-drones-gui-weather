@@ -6,7 +6,6 @@ using Color = Avalonia.Media.Color;
 
 namespace Asv.Drones.Gui.Weather;
 
-[PseudoClasses(":critical", ":warning", ":normal", ":unknown")]
 public class WindIndicator : IndicatorBase
 {
     #region Styled Props

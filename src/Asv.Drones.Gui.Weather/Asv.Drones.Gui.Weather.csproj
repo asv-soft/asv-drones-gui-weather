@@ -21,10 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\asv-drones\src\Asv.Drones.Gui.Core\Asv.Drones.Gui.Core.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Shell\Pages\Map\Flight\Widgets\" />
+      <ProjectReference Include="..\..\..\asv-drones\src\Asv.Drones.Gui.Uav\Asv.Drones.Gui.Uav.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -51,6 +48,10 @@
         <DependentUpon>WindIndicator.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="obj\Debug\net7.0\Avalonia\" />
     </ItemGroup>
 
 </Project>

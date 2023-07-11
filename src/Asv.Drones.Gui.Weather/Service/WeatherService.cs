@@ -7,8 +7,9 @@ namespace Asv.Drones.Gui.Weather;
 
 public class WeatherServiceConfig
 {
-    public bool Visibility { get; set; } = false;
+    public bool Visibility { get; set; }
     public string CurrentProviderName { get; set; }
+    public Dictionary<string, string> ProvidersApiKeys { get; set; } = new();
 }
 
 [Export(typeof(IWeatherService))]
@@ -30,11 +31,36 @@ public class WeatherService : ServiceWithConfigBase<WeatherServiceConfig>, IWeat
         
         var weatherProviderFromConfig = InternalGetConfig(_ => _.CurrentProviderName);
 
-        CurrentWeatherProvider = new RxValue<IWeatherProviderBase>(
-            weatherProviders.SingleOrDefault(_ => _.Name == weatherProviderFromConfig))
-            .DisposeItWith(Disposable);
-
+        if (weatherProviderFromConfig.IsNullOrWhiteSpace())
+        {
+            CurrentWeatherProvider = new RxValue<IWeatherProviderBase>(
+                    weatherProviders.FirstOrDefault())
+                .DisposeItWith(Disposable);
+        }
+        else
+        {
+            CurrentWeatherProvider = new RxValue<IWeatherProviderBase>(
+                    weatherProviders.SingleOrDefault(_ => _.Name == weatherProviderFromConfig))
+                .DisposeItWith(Disposable);
+        }
+        
         CurrentWeatherProvider.Subscribe(SetCurrentProvider).DisposeItWith(Disposable);
+        
+        var weatherProviderApiKeyFromConfig = 
+            InternalGetConfig(_ =>
+            {
+                if (_.ProvidersApiKeys == null) _.ProvidersApiKeys = new();
+                if (_.ProvidersApiKeys.TryGetValue(CurrentWeatherProvider.Value.Name, out var __))
+                {
+                    return __;
+                }
+                return "";
+            });
+
+        CurrentWeatherProviderApiKey = new RxValue<string>(weatherProviderApiKeyFromConfig)
+            .DisposeItWith(Disposable);
+        
+        CurrentWeatherProviderApiKey.Subscribe(SetCurrentProviderApiKey).DisposeItWith(Disposable);
         
         _weatherProviders = weatherProviders;
     }
@@ -43,6 +69,8 @@ public class WeatherService : ServiceWithConfigBase<WeatherServiceConfig>, IWeat
 
     public IRxEditableValue<IWeatherProviderBase> CurrentWeatherProvider { get; }
 
+    public IRxEditableValue<string> CurrentWeatherProviderApiKey { get; }
+    
     public IEnumerable<IWeatherProviderBase> WeatherProviders => _weatherProviders;
     
     private void SetVisibility(bool visibility)
@@ -50,9 +78,42 @@ public class WeatherService : ServiceWithConfigBase<WeatherServiceConfig>, IWeat
         InternalSaveConfig(_ => _.Visibility = visibility);
     }
 
-    private void SetCurrentProvider(IWeatherProviderBase provider)
+    private async void SetCurrentProvider(IWeatherProviderBase provider)
     {
-        //CurrentWeatherProvider = WeatherProviders.SingleOrDefault(_ => _.Name == provider.Name);
+        if (CurrentWeatherProviderApiKey != null)
+        {
+            var apiKey = InternalGetConfig(_ =>
+            {
+                if (_.ProvidersApiKeys == null) 
+                    _.ProvidersApiKeys = new();
+                
+                if (_.ProvidersApiKeys.TryGetValue(provider.Name, out var __))
+                {
+                    return __;
+                }
+                return "";
+            });
+            
+            CurrentWeatherProviderApiKey.OnNext(apiKey);
+
+            CurrentWeatherProvider.Value.ApiKey = apiKey;
+
+            var data = await GetWeatherData(new GeoPoint(56.861285, 35.89342, 0));
+        }
+        
         InternalSaveConfig(_ => _.CurrentProviderName = provider.Name);
+    }
+
+    private void SetCurrentProviderApiKey(string key)
+    {
+        CurrentWeatherProvider.Value.ApiKey = key;
+        
+        InternalSaveConfig(_ => 
+            _.ProvidersApiKeys[CurrentWeatherProvider.Value.Name] = key);
+    }
+    
+    public async Task<WeatherData> GetWeatherData(GeoPoint location)
+    {
+        return await CurrentWeatherProvider.Value.GetWeatherData(location);
     }
 }

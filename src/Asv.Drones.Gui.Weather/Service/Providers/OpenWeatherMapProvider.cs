@@ -9,8 +9,15 @@ namespace Asv.Drones.Gui.Core;
 [PartCreationPolicy(CreationPolicy.NonShared)]
 public class OpenWeatherMapProvider : IWeatherProviderBase
 {
+    private readonly ILogService _log;
     public string ApiKey { get; set; }
     public string Name => "OpenWeatherMap";
+
+    [ImportingConstructor]
+    public OpenWeatherMapProvider(ILogService log)
+    {
+        _log = log;
+    }
     
     public async Task<WeatherData> GetWeatherData(double latitude, double longitude)
     {
@@ -23,20 +30,26 @@ public class OpenWeatherMapProvider : IWeatherProviderBase
 
             HttpResponseMessage response = await client.GetAsync(apiUrl);
 
-            string jsonResponse = await response.Content.ReadAsStringAsync();
-
-            OpenWeatherMapWeatherResponse openWeatherMapWeatherResponse = 
-                JsonConvert.DeserializeObject<OpenWeatherMapWeatherResponse>(jsonResponse);
-         
-            var weatherData = new WeatherData
+            if (response.IsSuccessStatusCode)
             {
-                WindSpeed = openWeatherMapWeatherResponse.Wind.Speed,
-                WindDirection = openWeatherMapWeatherResponse.Wind.Direction,
-                Temperature = openWeatherMapWeatherResponse.Main.Temperature - 273.15f // Conversion from Kelvin to Celsius
-            };
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+            
+                OpenWeatherMapResponse openWeatherMapResponse = 
+                    JsonConvert.DeserializeObject<OpenWeatherMapResponse>(jsonResponse);
+         
+                var weatherData = new WeatherData
+                {
+                    WindSpeed = openWeatherMapResponse.Wind.Speed,
+                    WindDirection = openWeatherMapResponse.Wind.Direction,
+                    Temperature = openWeatherMapResponse.Main.Temperature - 273.15f // Conversion from Kelvin to Celsius
+                };
 
-            return weatherData;
+                return weatherData;
+            }
+            
+            _log.Error(Name,"Connection error occurred");
         }
+        
         
         return new WeatherData();
     }
@@ -47,7 +60,7 @@ public class OpenWeatherMapProvider : IWeatherProviderBase
     }
 }
 
-public class OpenWeatherMapWeatherResponse
+public class OpenWeatherMapResponse
 {
     [JsonProperty("wind")]
     public Wind Wind { get; set; }

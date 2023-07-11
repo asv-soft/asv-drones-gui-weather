@@ -4,7 +4,7 @@ namespace Asv.Drones.Gui.Weather;
 
 public class WeatherData
 {
-    public double WindSpeed { get; set; } // Property names depend on actual API response
+    public double WindSpeed { get; set; }
     public double WindDirection { get; set; }
     public double Temperature { get; set; }
 }

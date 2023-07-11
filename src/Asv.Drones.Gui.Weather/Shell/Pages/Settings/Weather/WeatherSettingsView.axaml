@@ -43,7 +43,7 @@
                                          Icon="{Binding WeatherApiKeyIcon}"
                                          Description="{x:Static weather:RS.WeatherSettingsView_WeatherApiKey_Description}">
                     <core:OptionsDisplayItem.ActionButton>
-                        <TextBox Watermark="Enter your api key" Width="180"/>
+                        <TextBox Watermark="Enter your api key" Width="180" Text="{CompiledBinding CurrentWeatherProviderApiKey}"/>
                     </core:OptionsDisplayItem.ActionButton>
                 </core:OptionsDisplayItem>
             </StackPanel>

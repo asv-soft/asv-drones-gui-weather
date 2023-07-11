@@ -3,7 +3,7 @@
         xmlns:controls="using:Asv.Drones.Gui.Weather"
         xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
     <Design.PreviewWith>
-        <controls:WindIndicator Angle="214" Value="30.2" MaxValue="30" Width="50" Height="50"/>
+        <controls:WindIndicator Angle="0" Value="4" MaxValue="10" Width="50" Height="50"/>
     </Design.PreviewWith>
     <Style Selector="controls|WindIndicator">
         <Setter Property="Background" Value="Transparent"/>

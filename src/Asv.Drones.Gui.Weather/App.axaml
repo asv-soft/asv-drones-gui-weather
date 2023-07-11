@@ -9,19 +9,10 @@
                         Opacity="0.8" CornerRadius="{DynamicResource ControlCornerRadius}" 
                         ClipToBounds="True">
                     <StackPanel>
-                        <Button>
-                            <StackPanel Orientation="Horizontal" Spacing="5">
-                                <avalonia:MaterialIcon Kind="Temperature"/>
-                                <TextBlock VerticalAlignment="Center" Text="30 C"/>
-                                <weather:WindIndicator Width="20" Height="20" Value="4" Angle="120"/>
-                                <TextBlock VerticalAlignment="Center" Text="10 m/s"/>
-                            </StackPanel>    
-                        </Button>
+                        <weather:WindIndicator Width="20" Height="20"/>
                     </StackPanel>
-                    
                 </Border>
             </Border>
         </Border>
     </Design.PreviewWith>
-    <StyleInclude Source="avares://Asv.Drones.Gui.Weather/Controls/WindIndicator.axaml"/>
 </Styles>

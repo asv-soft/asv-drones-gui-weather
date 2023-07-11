@@ -45,6 +45,12 @@ public class WeatherSettingsViewModel : SettingsPartBase
         this.WhenAnyValue(_ => _.CurrentWeatherProvider)
             .Subscribe(_weatherService.CurrentWeatherProvider)
             .DisposeItWith(Disposable);
+        
+        _weatherService.CurrentWeatherProviderApiKey.Subscribe(_ => CurrentWeatherProviderApiKey = _).DisposeItWith(Disposable);
+        
+        this.WhenAnyValue(_ => _.CurrentWeatherProviderApiKey)
+            .Subscribe(_weatherService.CurrentWeatherProviderApiKey)
+            .DisposeItWith(Disposable);
     }
 
     public override int Order => 4;
@@ -57,6 +63,9 @@ public class WeatherSettingsViewModel : SettingsPartBase
     
     [Reactive]
     public IWeatherProviderBase CurrentWeatherProvider { get; set; }
+    
+    [Reactive]
+    public string CurrentWeatherProviderApiKey { get; set; }
 
     public IEnumerable<IWeatherProviderBase> WeatherProviders => _weatherService.WeatherProviders;
     public string WeatherIcon => MaterialIconDataProvider.GetData(MaterialIconKind.WeatherPartlyCloudy);

@@ -6,5 +6,8 @@ public interface IWeatherService
 {
     public IRxEditableValue<bool> Visibility { get; }
     public IEnumerable<IWeatherProviderBase> WeatherProviders { get; }
+    public IRxEditableValue<string> CurrentWeatherProviderApiKey { get; }
     public IRxEditableValue<IWeatherProviderBase> CurrentWeatherProvider { get; }
+
+    public Task<WeatherData> GetWeatherData(GeoPoint location);
 }
