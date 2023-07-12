@@ -32,6 +32,7 @@
       <EmbeddedResource Update="RS.ru.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
       </EmbeddedResource>
+      <EmbeddedResource Remove="obj\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -48,10 +49,27 @@
         <DependentUpon>WindIndicator.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Remove="obj\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="obj\Debug\net7.0\Avalonia\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaXaml Remove="obj\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Remove="obj\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaResource Remove="obj\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="obj\**" />
     </ItemGroup>
 
 </Project>
