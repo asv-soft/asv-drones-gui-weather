@@ -50,6 +50,10 @@
         <SubType>Code</SubType>
       </Compile>
       <Compile Remove="obj\**" />
+      <Compile Update="Shell\Pages\Map\Actions\WeatherActionView.axaml.cs">
+        <DependentUpon>WeatherView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

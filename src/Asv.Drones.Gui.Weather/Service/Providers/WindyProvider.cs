@@ -66,7 +66,7 @@ public class WindyProvider : IWeatherProviderBase
                     {
                         WindSpeed =  CalculateResultantSpeed(windSpeedU, windSpeedV),
                         WindDirection = CalculateWindDirection(windSpeedU, windSpeedV),
-                        Temperature = temperature - 273.15f
+                        Temperature = temperature
                     };
 
                     return weatherData;

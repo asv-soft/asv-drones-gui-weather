@@ -31,7 +31,7 @@ public class WindIndicator : IndicatorBase
     #region Value
     private double _value;
 
-    private static readonly DirectProperty<WindIndicator, double> ValueProperty = AvaloniaProperty.RegisterDirect<WindIndicator, double>(
+    public static readonly DirectProperty<WindIndicator, double> ValueProperty = AvaloniaProperty.RegisterDirect<WindIndicator, double>(
         nameof(Value), o => o.Value, (o, v) => o.Value = v);
 
     /// <summary>
@@ -45,9 +45,9 @@ public class WindIndicator : IndicatorBase
     #endregion
     
     #region Angle
-    private double _angle;
+    private  double _angle;
 
-    private static readonly DirectProperty<WindIndicator, double> AngleProperty = AvaloniaProperty.RegisterDirect<WindIndicator, double>(
+    public static readonly DirectProperty<WindIndicator, double> AngleProperty = AvaloniaProperty.RegisterDirect<WindIndicator, double>(
         nameof(Angle), o => o.Angle, (o, v) => o.Angle = v);
 
     /// <summary>

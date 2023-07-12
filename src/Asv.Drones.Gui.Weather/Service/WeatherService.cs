@@ -14,6 +14,8 @@ public class WeatherServiceConfig
     public bool Visibility { get; set; }
     public string CurrentProviderName { get; set; }
     public Dictionary<string, string> ProvidersApiKeys { get; set; } = new();
+    
+    public WeatherData LastWeatherData { get; set; }
 }
 
 [Export(typeof(IWeatherService))]
@@ -66,11 +68,19 @@ public class WeatherService : ServiceWithConfigBase<WeatherServiceConfig>, IWeat
         
         CurrentWeatherProviderApiKey.Subscribe(SetCurrentProviderApiKey).DisposeItWith(Disposable);
         
+        var lastWeatherDataFromConfig = InternalGetConfig(_ => _.LastWeatherData);
+        
+        LastWeatherData = new RxValue<WeatherData>(lastWeatherDataFromConfig ?? new WeatherData()).DisposeItWith(Disposable);
+        
+        LastWeatherData.Subscribe(SetLastWeatherData).DisposeItWith(Disposable);
+        
         _weatherProviders = weatherProviders;
     }
     
     public IRxEditableValue<bool> Visibility { get; }
 
+    public IRxEditableValue<WeatherData> LastWeatherData { get; }
+    
     public IRxEditableValue<IWeatherProviderBase> CurrentWeatherProvider { get; }
 
     public IRxEditableValue<string> CurrentWeatherProviderApiKey { get; }
@@ -101,8 +111,6 @@ public class WeatherService : ServiceWithConfigBase<WeatherServiceConfig>, IWeat
             CurrentWeatherProviderApiKey.OnNext(apiKey);
 
             CurrentWeatherProvider.Value.ApiKey = apiKey;
-
-            var data = await GetWeatherData(new GeoPoint(56.861285, 35.89342, 0));
         }
         
         InternalSaveConfig(_ => _.CurrentProviderName = provider.Name);
@@ -114,6 +122,11 @@ public class WeatherService : ServiceWithConfigBase<WeatherServiceConfig>, IWeat
         
         InternalSaveConfig(_ => 
             _.ProvidersApiKeys[CurrentWeatherProvider.Value.Name] = key);
+    }
+    
+    private void SetLastWeatherData(WeatherData data)
+    {
+        InternalSaveConfig(_ =>_.LastWeatherData = data);
     }
     
     public async Task<WeatherData> GetWeatherData(GeoPoint location)

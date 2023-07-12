@@ -11,5 +11,6 @@ public interface IWeatherService
     public IRxEditableValue<string> CurrentWeatherProviderApiKey { get; }
     public IRxEditableValue<IWeatherProviderBase> CurrentWeatherProvider { get; }
 
+    public IRxEditableValue<WeatherData> LastWeatherData { get; }
     public Task<WeatherData> GetWeatherData(GeoPoint location);
 }

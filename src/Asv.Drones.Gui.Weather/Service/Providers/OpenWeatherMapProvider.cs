@@ -43,7 +43,7 @@ public class OpenWeatherMapProvider : IWeatherProviderBase
                 {
                     WindSpeed = openWeatherMapResponse.Wind.Speed,
                     WindDirection = openWeatherMapResponse.Wind.Direction,
-                    Temperature = openWeatherMapResponse.Main.Temperature - 273.15f // Conversion from Kelvin to Celsius
+                    Temperature = openWeatherMapResponse.Main.Temperature
                 };
 
                 return weatherData;
