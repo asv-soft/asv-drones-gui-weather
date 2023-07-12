@@ -1,4 +1,6 @@
-﻿using Asv.Common;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Asv.Common;
 
 namespace Asv.Drones.Gui.Weather;
 

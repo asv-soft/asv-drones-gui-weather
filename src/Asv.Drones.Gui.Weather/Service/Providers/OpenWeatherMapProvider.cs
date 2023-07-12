@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.Composition;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Asv.Common;
 using Asv.Drones.Gui.Weather;
 using Newtonsoft.Json;

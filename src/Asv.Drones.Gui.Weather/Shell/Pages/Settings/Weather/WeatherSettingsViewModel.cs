@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.Composition;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using Asv.Common;
 using Asv.Drones.Gui.Core;
 using DynamicData.Binding;
