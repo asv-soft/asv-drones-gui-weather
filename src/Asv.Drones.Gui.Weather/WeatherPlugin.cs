@@ -17,8 +17,8 @@ public class WeatherPlugin : IPluginEntryPoint
     }
     public void Initialize()
     {
-        Application.Current
-            .Styles.Add(new StyleInclude(new Uri("avares://Asv.Drones.Gui.Weather/Controls/WindIndicator.axaml")));
+        // Application.Current
+        //     .Styles.Add(new StyleInclude(new Uri("avares://Asv.Drones.Gui.Weather/Controls/WindIndicator.axaml")));
     }
 
     public void OnFrameworkInitializationCompleted()

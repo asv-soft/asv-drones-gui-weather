@@ -15,4 +15,5 @@
             </Border>
         </Border>
     </Design.PreviewWith>
+    <StyleInclude Source="Controls/WindIndicator.axaml"/>
 </Styles>
