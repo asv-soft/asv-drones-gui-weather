@@ -11,7 +11,7 @@ namespace Asv.Drones.Gui.Weather;
 
 [Export(FlightPageViewModel.UriString,typeof(IMapAction))]
 [PartCreationPolicy(CreationPolicy.NonShared)]
-public class WeatherActionViewModel : ViewModelBase, IMapAction
+public class WeatherActionViewModel : MapActionBase
 {
     private readonly IWeatherService _weatherService;
     private readonly ILocalizationService _localizationService;
@@ -75,8 +75,8 @@ public class WeatherActionViewModel : ViewModelBase, IMapAction
         CurrentWeatherData = await _weatherService.GetWeatherData(location);
     }
 
-    public int Order => 3;
-    public IMapAction Init(IMap context)
+    
+    public override IMapAction Init(IMap context)
     {
         UpdateWeather = ReactiveCommand.CreateFromTask(
             () => UpdateWeatherImpl(context.Center)).DisposeItWith(Disposable);
