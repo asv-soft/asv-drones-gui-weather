@@ -41,4 +41,10 @@
     <data name="WeatherSettingsView_WeatherApiKey_Description" xml:space="preserve">
         <value>Здесь вам нужно указать ваш API ключ</value>
     </data>
+    <data name="WeatherProvider_ConnectionErrorMessage" xml:space="preserve">
+        <value>Возникла ошибка соединения</value>
+    </data>
+    <data name="WeatherProvider_CustomErrorMessage" xml:space="preserve">
+        <value>Ошибка: {0} - {1}</value>
+    </data>
 </root>
