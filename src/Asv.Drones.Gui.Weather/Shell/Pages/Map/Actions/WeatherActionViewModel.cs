@@ -78,6 +78,7 @@ public class WeatherActionViewModel : MapActionBase
     
     public override IMapAction Init(IMap context)
     {
+        base.Init(context);
         UpdateWeather = ReactiveCommand.CreateFromTask(
             () => UpdateWeatherImpl(context.Center)).DisposeItWith(Disposable);
         

@@ -30,29 +30,34 @@ public class OpenWeatherMapProvider : IWeatherProviderBase
                             $"&lon={longitude}" +
                             $"&appid={ApiKey}";
 
-            HttpResponseMessage response = await client.GetAsync(apiUrl);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                string jsonResponse = await response.Content.ReadAsStringAsync();
-            
-                OpenWeatherMapResponse openWeatherMapResponse = 
-                    JsonConvert.DeserializeObject<OpenWeatherMapResponse>(jsonResponse);
-         
-                var weatherData = new WeatherData
-                {
-                    WindSpeed = openWeatherMapResponse.Wind.Speed,
-                    WindDirection = openWeatherMapResponse.Wind.Direction,
-                    Temperature = openWeatherMapResponse.Main.Temperature
-                };
+                HttpResponseMessage response = await client.GetAsync(apiUrl);
 
-                return weatherData;
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                    OpenWeatherMapResponse openWeatherMapResponse =
+                        JsonConvert.DeserializeObject<OpenWeatherMapResponse>(jsonResponse);
+
+                    var weatherData = new WeatherData
+                    {
+                        WindSpeed = openWeatherMapResponse.Wind.Speed,
+                        WindDirection = openWeatherMapResponse.Wind.Direction,
+                        Temperature = openWeatherMapResponse.Main.Temperature
+                    };
+
+                    return weatherData;
+                }
+
+                _log.Error(Name,string.Format(Weather.RS.WeatherProvider_CustomErrorMessage, response.StatusCode, response.ReasonPhrase));
             }
-            
-            _log.Error(Name,"Connection error occurred");
+            catch (Exception ex)
+            {
+                _log.Error(Name,Weather.RS.WeatherProvider_ConnectionErrorMessage, ex);
+            }
         }
-        
-        
         return new WeatherData();
     }
 
