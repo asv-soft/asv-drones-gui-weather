@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Asv.Cfg" Version="1.9.0-alpha-03" />
+      <PackageReference Include="Asv.Cfg" Version="1.10.0-alpha-01" />
       <PackageReference Include="Avalonia" Version="11.0.0" />
       <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0" />
       <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.0.0" />
