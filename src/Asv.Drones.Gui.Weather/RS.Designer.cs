@@ -60,6 +60,24 @@ namespace Asv.Drones.Gui.Weather {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connection error occurred.
+        /// </summary>
+        public static string WeatherProvider_ConnectionErrorMessage {
+            get {
+                return ResourceManager.GetString("WeatherProvider_ConnectionErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error: {0} - {1}.
+        /// </summary>
+        public static string WeatherProvider_CustomErrorMessage {
+            get {
+                return ResourceManager.GetString("WeatherProvider_CustomErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Here you can change weather settings.
         /// </summary>
         public static string WeatherSettingsView_Description {

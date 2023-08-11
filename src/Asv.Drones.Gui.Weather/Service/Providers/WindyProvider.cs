@@ -71,14 +71,12 @@ public class WindyProvider : IWeatherProviderBase
 
                     return weatherData;
                 }
-                else
-                {
-                    _log.Error(Name,$"Error: {response.StatusCode} - {response.ReasonPhrase}");
-                }
+
+                _log.Error(Name,string.Format(Weather.RS.WeatherProvider_CustomErrorMessage, response.StatusCode, response.ReasonPhrase));
             }
             catch (Exception ex)
             {
-                _log.Error(Name,"Connection error occurred", ex);
+                _log.Error(Name,Weather.RS.WeatherProvider_ConnectionErrorMessage, ex);
             }
         }
         

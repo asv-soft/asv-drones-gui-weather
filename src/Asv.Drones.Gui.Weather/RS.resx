@@ -48,4 +48,10 @@
     <data name="WeatherSettingsView_WeatherApiKey_Header" xml:space="preserve">
         <value>API key</value>
     </data>
+    <data name="WeatherProvider_ConnectionErrorMessage" xml:space="preserve">
+        <value>Connection error occurred</value>
+    </data>
+    <data name="WeatherProvider_CustomErrorMessage" xml:space="preserve">
+        <value>Error: {0} - {1}</value>
+    </data>
 </root>
