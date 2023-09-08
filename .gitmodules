@@ -1,0 +1,3 @@
+[submodule "asv-drones"]
+	path = asv-drones
+	url = git@github.com:asv-soft/asv-drones.git

@@ -2,12 +2,9 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
-/.idea.Asv.Drones.Daa.iml
-/contentModel.xml
 /modules.xml
 /projectSettingsUpdater.xml
+/.idea.Asv.Drones.Gui.Plugin.Weather.iml
+/contentModel.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml

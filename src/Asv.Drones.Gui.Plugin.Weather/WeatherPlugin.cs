@@ -22,9 +22,9 @@ public class WeatherPlugin : IPluginEntryPoint
 
     public void OnFrameworkInitializationCompleted()
     {
-        Application.Current.Styles.Add(new StyleInclude(new Uri("resm:Styles?assembly=Asv.Drones.Gui.Weather"))
+        Application.Current.Styles.Add(new StyleInclude(new Uri("resm:Styles?assembly=Asv.Drones.Gui.Plugin.Weather"))
         {
-            Source = new Uri("avares://Asv.Drones.Gui.Weather/App.axaml")
+            Source = new Uri("avares://Asv.Drones.Gui.Plugin.Weather/App.axaml")
         });
     }
 

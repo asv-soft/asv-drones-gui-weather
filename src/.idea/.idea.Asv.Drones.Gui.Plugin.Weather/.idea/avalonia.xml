@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="../asv-drones/src/Asv.Drones.Gui/Views/MainWindow.axaml" value="../asv-drones/src/Asv.Drones.Gui.Browser/Asv.Drones.Gui.Browser.csproj" />
+        <entry key="Asv.Drones.Gui.Plugin.Weather/App.axaml" value="../asv-drones/src/Asv.Drones.Gui.Browser/Asv.Drones.Gui.Browser.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
