@@ -3,9 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asv.Drones.Gui.Plugin.Weather", "Asv.Drones.Gui.Plugin.Weather\Asv.Drones.Gui.Plugin.Weather.csproj", "{9F0B05A7-8195-4392-A8A3-0493A4907C51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asv.Drones.Gui", "Asv.Drones.Gui", "{17B1009F-C0D7-447C-865B-930C2001F057}"
-	ProjectSection(SolutionItems) = preProject
-		Asv.Drones.Gui.Custom.props = Asv.Drones.Gui.Custom.props
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asv.Drones.Gui", "..\asv-drones\src\Asv.Drones.Gui\Asv.Drones.Gui.csproj", "{C7EC028F-9078-48D2-A5DC-30060552C332}"
 EndProject

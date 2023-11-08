@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <Import Project="$(SolutionDir)Asv.Drones.Gui.Custom.props"/>
+    
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -9,9 +10,7 @@
         <EnableDynamicLoading>true</EnableDynamicLoading>
         <RootNamespace>Asv.Drones.Gui.Weather</RootNamespace>
     </PropertyGroup>
-
-  
-
+    
     <ItemGroup>
       <PackageReference Include="Asv.Cfg" Version="$(AsvCommonVersion)" />
       <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
@@ -56,10 +55,15 @@
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>
-
-
+    
     <ItemGroup>
       <ProjectReference Include="..\..\asv-drones\src\Asv.Drones.Gui.Core\Asv.Drones.Gui.Core.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Content Include="$(SolutionDir)Asv.Drones.Gui.Custom.props">
+        <Link>Asv.Drones.Gui.Custom.props</Link>
+      </Content>
     </ItemGroup>
 
 </Project>
