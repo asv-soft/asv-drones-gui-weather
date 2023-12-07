@@ -8,7 +8,7 @@
   <PropertyGroup>
     <Nullable>enable</Nullable>
     <ProductVersion>0.1.0</ProductVersion>
-    <AvaloniaVersion>11.0.0</AvaloniaVersion>
+    <AvaloniaVersion>11.0.5</AvaloniaVersion>
     <AsvCommonVersion>1.12.7</AsvCommonVersion>
     <AsvMavlinkVersion>3.5.0-alpha03</AsvMavlinkVersion>
     <FluentAvaloniaUIVersion>2.0.0</FluentAvaloniaUIVersion>
