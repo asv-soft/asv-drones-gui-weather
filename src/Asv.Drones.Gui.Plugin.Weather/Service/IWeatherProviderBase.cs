@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Asv.Common;
 
-namespace Asv.Drones.Gui.Weather;
+namespace Asv.Drones.Gui.Plugin.Weather;
 
 public class WeatherData
 {

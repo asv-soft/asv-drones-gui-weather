@@ -7,7 +7,7 @@ using Asv.Cfg;
 using Asv.Common;
 using Asv.Drones.Gui.Core;
 
-namespace Asv.Drones.Gui.Weather;
+namespace Asv.Drones.Gui.Plugin.Weather;
 
 public class WeatherServiceConfig
 {

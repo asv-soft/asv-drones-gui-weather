@@ -3,14 +3,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-             xmlns:weather="clr-namespace:Asv.Drones.Gui.Weather"
+             xmlns:weather="clr-namespace:Asv.Drones.Gui.Plugin.Weather"
              mc:Ignorable="d" d:DesignWidth="160" d:DesignHeight="40"
-             x:Class="Asv.Drones.Gui.Weather.WeatherActionView"
+             x:Class="Asv.Drones.Gui.Plugin.Weather.WeatherActionView"
              x:DataType="weather:WeatherActionViewModel"
              IsVisible="{CompiledBinding Visibility}">
-    <!--<Design.DesignStyle>
-        <StyleInclude Source="avares://Asv.Drones.Gui.Weather/App.axaml"/>
-    </Design.DesignStyle>-->
     <Design.DataContext>
         <weather:WeatherActionViewModel/>
     </Design.DataContext>

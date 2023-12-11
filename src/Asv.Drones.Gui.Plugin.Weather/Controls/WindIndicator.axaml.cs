@@ -4,7 +4,7 @@ using Avalonia.Controls.Metadata;
 using Avalonia.Media;
 using Color = Avalonia.Media.Color;
 
-namespace Asv.Drones.Gui.Weather;
+namespace Asv.Drones.Gui.Plugin.Weather;
 
 public class WindIndicator : IndicatorBase
 {

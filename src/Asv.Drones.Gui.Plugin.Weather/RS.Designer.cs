@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Asv.Drones.Gui.Weather {
+namespace Asv.Drones.Gui.Plugin.Weather {
     using System;
     
     
@@ -38,7 +38,7 @@ namespace Asv.Drones.Gui.Weather {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Asv.Drones.Gui.Weather.RS", typeof(RS).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Asv.Drones.Gui.Plugin.Weather.RS", typeof(RS).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

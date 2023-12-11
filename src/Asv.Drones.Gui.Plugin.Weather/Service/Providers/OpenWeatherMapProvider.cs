@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.Composition;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Asv.Common;
-using Asv.Drones.Gui.Weather;
+using Asv.Drones.Gui.Core;
 using Newtonsoft.Json;
 
-namespace Asv.Drones.Gui.Core;
+namespace Asv.Drones.Gui.Plugin.Weather;
 
 [Export(typeof(IWeatherProviderBase))]
 [PartCreationPolicy(CreationPolicy.NonShared)]
@@ -51,11 +49,11 @@ public class OpenWeatherMapProvider : IWeatherProviderBase
                     return weatherData;
                 }
 
-                _log.Error(Name,string.Format(Weather.RS.WeatherProvider_CustomErrorMessage, response.StatusCode, response.ReasonPhrase));
+                _log.Error(Name,string.Format(RS.WeatherProvider_CustomErrorMessage, response.StatusCode, response.ReasonPhrase));
             }
             catch (Exception ex)
             {
-                _log.Error(Name,Weather.RS.WeatherProvider_ConnectionErrorMessage, ex);
+                _log.Error(Name,RS.WeatherProvider_ConnectionErrorMessage, ex);
             }
         }
         return new WeatherData();

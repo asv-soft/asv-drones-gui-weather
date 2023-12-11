@@ -8,7 +8,7 @@ using Material.Icons;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
-namespace Asv.Drones.Gui.Weather;
+namespace Asv.Drones.Gui.Plugin.Weather;
 
 [Export(typeof(ISettingsPart))]
 [PartCreationPolicy(CreationPolicy.NonShared)]

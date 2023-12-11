@@ -4,7 +4,7 @@ using Avalonia;
 using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Styling;
 
-namespace Asv.Drones.Gui.Weather;
+namespace Asv.Drones.Gui.Plugin.Weather;
 
 [PluginEntryPoint("Weather", CorePlugin.Name)]
 [PartCreationPolicy(CreationPolicy.Shared)]

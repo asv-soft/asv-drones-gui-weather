@@ -8,7 +8,7 @@
         <Configurations>Debug;Release</Configurations>
         <Platforms>AnyCPU</Platforms>
         <EnableDynamicLoading>true</EnableDynamicLoading>
-        <RootNamespace>Asv.Drones.Gui.Weather</RootNamespace>
+        <RootNamespace>Asv.Drones.Gui.Plugin.Weather</RootNamespace>
     </PropertyGroup>
     
     <ItemGroup>

@@ -5,7 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
 
-namespace Asv.Drones.Gui.Weather;
+namespace Asv.Drones.Gui.Plugin.Weather;
 
 [ExportView(typeof(WeatherSettingsViewModel))]
 [PartCreationPolicy(CreationPolicy.NonShared)]

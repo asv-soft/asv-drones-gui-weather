@@ -7,7 +7,7 @@ using DynamicData.Binding;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
-namespace Asv.Drones.Gui.Weather;
+namespace Asv.Drones.Gui.Plugin.Weather;
 
 [Export(FlightPageViewModel.UriString,typeof(IMapAction))]
 [PartCreationPolicy(CreationPolicy.NonShared)]
