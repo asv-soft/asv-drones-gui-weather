@@ -20,10 +20,10 @@ Make sure the next components are installed:
 After you installed all of these, you need to follow the steps:
 
 1. Open terminal and clone this repository using `git clone git@github.com:asv-soft/asv-drones-gui-weather.git` command (URL may be different);
-2. Open the cloned repository folder using `cd asv-drones-gui-weather`
-3. Execute `git submodule init` command to initialize Asv.Drones.Gui as a submodule.
-4. Execute `git submodule update` to set latest version on Asv.Drones.Gui submodule. 
-5. Then you need to restore NuGet packages in a plugin project with `dotnet restore`, `nuget restore` or through IDE.
+2. Open the cloned repository folder using `cd asv-drones-gui-weather`;
+3. Execute `git submodule init` command to initialize Asv.Drones.Gui as a submodule;
+4. Execute `git submodule update` to set latest version on Asv.Drones.Gui submodule;
+5. Then you need to restore NuGet packages in a plugin project with `dotnet restore`, `nuget restore` or through IDE;
 6. Finally - try to build your project with `dotnet build` or through IDE. 
 
 ## How to use
