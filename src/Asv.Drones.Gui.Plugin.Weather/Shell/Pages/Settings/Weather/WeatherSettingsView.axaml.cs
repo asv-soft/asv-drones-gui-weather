@@ -15,4 +15,9 @@ public partial class WeatherSettingsView : ReactiveUserControl<WeatherSettingsVi
     {
         InitializeComponent();
     }
+    
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
 }
