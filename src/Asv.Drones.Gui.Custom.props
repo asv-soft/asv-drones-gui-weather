@@ -7,7 +7,7 @@
   </ItemGroup>
   <PropertyGroup>
     <Nullable>enable</Nullable>
-    <ProductVersion>0.1.0</ProductVersion>
+    <PluginVersion>0.1.0</PluginVersion>
     <AvaloniaVersion>11.0.5</AvaloniaVersion>
     <AsvCommonVersion>1.13.1</AsvCommonVersion>
     <AsvMavlinkVersion>3.6.0-alpha11</AsvMavlinkVersion>
